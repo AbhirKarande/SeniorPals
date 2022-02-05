@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import * as firebase from 'firebase';
+//import firebase from 'firebase/app'
+import React, {useEffect, useState} from 'react';
+//import { initializeApp } from "firebase/app";
 
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+//import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,8 +24,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+//const app = initializeApp(firebaseConfig);
+//const analytics = getAnalytics(app);
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -36,7 +38,7 @@ export default function App() {
 })
 
 const initializeFirebase = () => {
-    if (!firebase.apps.length) {
+    if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
     }
 }
