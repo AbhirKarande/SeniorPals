@@ -59,14 +59,21 @@ const listenForAuthenticationChange = () => {
 }
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <h1>Welcome to SeniorPals!</h1>
+      
+      
       <StatusBar style="auto" />
     </View>
   );
 }
 
 
-
+const styles1 = StyleSheet.create({
+  container: {
+    marginTop:65,
+    flex: 1,
+  }
+});
 
 const styles = StyleSheet.create({
   container: {
