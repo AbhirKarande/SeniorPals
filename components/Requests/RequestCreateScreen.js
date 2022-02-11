@@ -6,7 +6,7 @@ import RequestCreatorForm from "./RequestCreatorForm";
 const RequestCreatorScreen = (props) => {
     const {authenticated, user, stackNavigation} = props;
 
-    const onFoodRequestCreated = () => {
+    const onServiceRequestCreated = () => {
         stackNavigation.pop();
     }
 
@@ -14,7 +14,7 @@ const RequestCreatorScreen = (props) => {
         <View style={styles.container}>
             <RequestCreatorForm
                 user={user}
-                onFoodRequestCreated={onFoodRequestCreated}
+                onServiceRequestCreated={onServiceRequestCreated}
                 style={styles.requestCreatorForm}
             />
         </View>

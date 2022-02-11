@@ -6,12 +6,12 @@ import FirestoreDataAgent from "../../data/FirestoreDataAgent";
 import * as Location from 'expo-location';
 
 const RequestCreatorForm = (props) => {
-    const {user, onFoodRequestCreated} = props;
+    const {user, onRequestCreated} = props;
 
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
-    const [dietaryRestrictions, setDietaryRestrictions] = useState("");
+    const [Restrictions, setRestrictions] = useState("");
 
     const dataAgent = new FirestoreDataAgent();
 
@@ -34,7 +34,7 @@ const RequestCreatorForm = (props) => {
             return false;
         }
 
-        // if (!verifyDietaryRestrictions(dietaryRestrictions)) {
+        // if (!verifyDietaryRestrictions(Restrictions)) {
         //     showAlert("Error: Dietary Restrictions", "")
         //     setLoading(false);
         //     return false;
@@ -47,12 +47,12 @@ const RequestCreatorForm = (props) => {
                 user: user,
                 name: name,
                 address: address,
-                dietaryRestrictions: dietaryRestrictions,
+                Restrictions: Restrictions,
                 location: latLong,
                 timestamp: new Date().getTime()
             }).then(() => {
                 showAlert("Success!", "Request Submitted")
-                onFoodRequestCreated();
+                onRequestCreated();
                 setLoading(false);
             }).catch((err) => {
                 showAlert("Error", err.toString())
@@ -93,7 +93,7 @@ const RequestCreatorForm = (props) => {
         return address.length > 0;
     }
 
-    const verifyDietaryRestrictions = (dietaryRestrictions) => {
+    const verifyRestrictions = (Restrictions) => {
 
         return true; // optional
     }
@@ -115,8 +115,8 @@ const RequestCreatorForm = (props) => {
 
                 <TextInput
                     label="Description"
-                    value={dietaryRestrictions}
-                    onChangeText={text => setDietaryRestrictions(text)}
+                    value={Restrictions}
+                    onChangeText={text => setRestrictions(text)}
                 />
 
                 <Button
